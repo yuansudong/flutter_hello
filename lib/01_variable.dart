@@ -1,7 +1,9 @@
-
-
 late String g1;
-
+class Point {
+    double x;
+    double y;
+    Point(this.x,this.y);
+}
 void main() {
   /**
   *
@@ -51,13 +53,58 @@ void main() {
 
   /**
    *
-   *  常量
-   *
-   *
+   *  const 为编译时常量，即字符串，数字，列表(不可变，也就是无法进行增加以及删除)等类型。
+   *  final 只能被设置一次，且不能再次被赋值。该修饰符一般用于修饰对象。
+   *  对象本身无法修改，但是对象的值是可以修改的。
+   *  final O1 = new Point(1,2);
+   *  O1 = new Point(4,5); // 该语句是会出错的。
+   *  O1.x = 2; // 正确
+   *  此处需要注意的是，在实例化对象时，可以不写new这个修饰符。
    */
+  const a = 'hello';
+  // a = 'world';  // 该语句是会报错的
+  final p1 =  Point(1,2);
+  // p1 = new Point(2,4); // 该语句时会报错的
+  p1.x = 2;
+
+  print('常量a是$a,常量p是{${p1.x},${p1.y}');
+  /**
+   *
+   *
+   * 类型检查以及类型转换
+   *
+   *  is 用于类型检查。as 用于类型转换。
+   *
+   *
+   * */
+
+   if(p1 is Point) {
+      print('p1‘s type is point');
+   }
+   dynamic number = 15;
+
+   if (number is int) {
+      print("number's type is int. and it's $number");
+   } else if(number is double) {
+     print("number's type is double. and it's $number");
+   }
+   /**
+   *  下面的这种方式，倘若左侧要转换的类型和右侧本身代表的类型不符合，是会抛出异常的
+   *  int intn = number as int;
+       print("intn's has value ==> $intn  ");
+    *  * 要解决这种异常的方式是用try catch.或者，先通过is进行判定。
+   *
+   *  dynamic number = 12.6;
+
+   *    if (number is int) {
+    *   } else if(number is double) {
+
+    *   }
+   * */
+}
 
 
+String getFinal() {
 
-
-
+  return "h1";
 }
