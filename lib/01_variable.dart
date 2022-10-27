@@ -23,7 +23,15 @@ void main() {
   the double is $fl.
   ''';
 
-  //
+  /**
+   *
+   *   声明一个为null的变量。
+   *
+   *
+   *
+   * */
+
+  int? intNull; // 此处的intNull 就是一个null型的变量。
 
   // 整型
   print(integer);

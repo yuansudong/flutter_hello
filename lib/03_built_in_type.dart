@@ -160,8 +160,122 @@ void main() {
   // noChangeSet.lastWhere((element) => element > 5) 返回目标集合中，最后一个大于5的元素。
   // noChangeSet.followedBy({10,11}).forEach((element) { print("the element is $element"); }); 在目标集合中，追加一组元素。并返回一个新的元素数组。
   // noChangeSet.lookup(object) 用于在目标集合中查找一个元素，倘若这个元素存在，则返回这个元素。否则返回NULL
+  // int result = noChangeSet.reduce((value, element) => value-element);
+  // 将目标集合合并成单个元素。
+  // 这单个元素取决于计算公式。其中value为前面集合元素计算之后的结果。
+  // print('the result is $result. the current set is $noChangeSet ');
+  // bool result =  normalSet.remove('six'); // 从集合中移除指定元素，如果该元素存在则返回true.如果该元素不存在则返回false.
+  // print("the current set is $normalSet. the result is $result ");
+  // normalSet.removeAll(<String>{'five','six','eleven'}); // 从集合中移除指定元素集合，没有返回值。
+  // print("the current set is $normalSet. ");
+  // print("the current set is ${normalSet.skip(2).toList()}"); // skip 用于跳过指定元素个数，并返回一个集合迭代器。
+  // skipWhile 用于返回一个集合迭代器。该迭代器满足skipWhile中，其条件表达式第一次为false之后的元素。
+  // 下面的含义是，noChangeSet这个集合，跳过不等于3的元素。一旦遇见元素等于3。那么，这个迭代器元素就会返回。
+  // print("the current set is $noChangeSet");
+  // var newSet = noChangeSet.skipWhile((value) {
+  //
+  //   return value != 3;
+  // });
+  // print("the new set is $newSet end....!");
+  // noChangeSet.toList() 用于将一个集合转换成列表。
+  // print("the list value is ${noChangeSet.toList()}");
+  // noChangeSet.map() 用于构建一个新的集合。新集合的元素种子是旧集合输入的元素。
+  // print("the new set is ${noChangeSet.map((e) => e*e)} ");
+  // normalSet.take 用于返回一个集合迭代器。该迭代器包含的集合元素个数是自初始元素起，n个元素的集合。这里的n指的是元素的个数
+  // print("the newset is ${normalSet.take(3)}");
+  // ${normalSet.takeWhile((value) => value != 'five')} 用于返回一个集合迭代器。该迭代器包含的集合元素个数是自初始元素起，至第一个不满足条件的元素为止。
+  // print("the newset is ${normalSet.takeWhile((value) => value != 'five')}");
+  // retain 有保存的含义，即保留目标集合与源集合中，具有相同元素的集合
+  // normalSet.retainAll(<String>{"two","five"});
+  // print("the newset is ${normalSet}" );
+  // normalSet.removeWhere((element) => false) 移除表达式为true的元素。
+  // normalSet.retainWhere((element) => false) 保留表达式为true的元素。
+  // noChangeSet.singleWhere((element) => element > 5)} 剔除元素，保留表达式为true的元素。如果最终集合中，剩余的不止一个元素。则会触发异常
+  // print("the current is ${noChangeSet.singleWhere((element) => element > 5)} ");
+  // noChangeSet.where((element) => element > 3)} 过滤集合，保留表达式为true的元素
+  // print("the current is ${noChangeSet.where((element) => element > 3)}" );
 
-  noChangeSet.reduce((value, element) => null)
+
+
+  /**
+   *
+   *  map,字典类型。
+   *
+   * */
+   Map<int,String> dict = <int,String>{1:"one",2:"two",3:"three"};
+   Map<int,String> dict1 = <int,String>{1:"11111"};
+   dict.forEach((key, value) { print("the current key $key,the current value $value");});
+   dict.forEach((key, value) { print("the current key $key,the current value $value");});
+
+  /**
+   *
+   * 除了上述遍历方式之外，还有一种遍历字典集合的方式。该方式如下：
+   *   /// for (final item in otherDiameters.entries) {
+   *   ///   diameters.putIfAbsent(item.key, () => item.value);
+   *   /// }
+   */
+
+
+   // dict.addAll 用于将两个字典类型合并，倘若源字典集合和目标集合中具有相同的key。
+   // 那么，源字典集合中的值会替代目标集合中的值。
+   // dict.addAll(dict1);
+
+   // print("the current dict struct is $dict");
+   // dict.isEmpty 判定字典集合是否为空
+   // dict.isNotEmpty 判定字典集合是否不为空
+   // dict.length 获取字典集合的长度
+   // dict.entries 获取字典集合中的键值对
+   // dict.keys 返回字典集合中key的集合
+   // dict.values 返回字典集合中value的集合
+   // dict.runtimeType 返回运行时类型
+   // dict.forEach((key, value) { }) 对集合进行迭代
+   // dict.removeWhere((key, value) => key > 2); 移除表达式为true的元素。
+   // dict.remove(2); 移除key值为2的键值对
+   // dict.map 基于源字典，构建新的字典集合。
+   // 其中map的返回值是一个MapEntry的构建类型,其中字符串乘以数字，代表复制几次。
+   // print("the current is ${dict.map((key, value) => MapEntry(key, value*2))}");
+   // dict.clear() 将集合清空
+   // dict.addEntries(newEntries) 用于添加一个键值对集合。倘若源键值对和目标键值对中存在着相同的key.
+   // 那么，源键值对中的值会替换掉目标键值对中的值。
+   // dict.addEntries(dict1.entries);
+   // print("the current dict is $dict");
+   // dict.containsKey(key) 检测字典集合中是否包含着key，如果包含着key则返回true.如果不包含key则返回false.
+   // dict.containsValue(value) 检测字典集合中是否包含着value,如果包含着value则返回true.如果不包含value则返回false.
+   // dict.putIfAbsent(10, () => "h1h1h1"); 该函数的用途是，检查这个key，是否存在字典集合中。
+   // 如果存在则什么都不做。如果不存在，则以键值对的方式，将key与value加入目标集合中
+   // dict.putIfAbsent(10, () => "h1h1h1");
+   // print("the current dict is $dict");
+   // dict.putIfAbsent(10, () => "h2");
+   // print("the current dict is $dict");
+   // dict.update 用于在字典集合中更新一个key的值。倘若该key存在字典集合中，那么就执行更新操作。
+   // 倘若该key不存在字典集合中，那么就执行创建操作。
+   // 该函数有三个参数，第一个参数为key，第二个参数为更新参数，其值为字典集合中与key对应的旧值，其返回值为要更新的值。
+   // 第三个参数为创建参数，其返回值为要赋予的初始值。
+    // dict.update(10, (value) {
+    //   print("first-update:the current value is $value");
+    //   return "25";
+    // },ifAbsent: (){
+    //   print("first-create:.....");
+    //   return "55";
+    // });
+    // print("the current dict is $dict");
+    // dict.update(10, (value) {
+    //   print("second-update:the current value is $value");
+    //   return "98";
+    // },ifAbsent: (){
+    //   print("second-create:.....");
+    //   return "55";
+    // });
+    // print("the current dict is $dict");
+    // updateAll 用于遍历一个字典集合中的所有键值对，用返回值作为相应key值的新值。
+    // dict.updateAll((key, value) => value.toUpperCase());
+
+    
+
+
+
+
+
 }
 
  Iterable<int> count(int n) sync* {
