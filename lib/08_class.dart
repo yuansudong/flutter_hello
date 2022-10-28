@@ -6,7 +6,8 @@
 class ProfileMark {
   final int x;
   final int y;
-  const ProfileMark(this.x,this.y);
+  /// 以{} 包起来的参数集合，可以被视作为命名构造函数参数
+  const ProfileMark({required this.x, required this.y});
 }
 
 class Rectangle {
@@ -38,7 +39,11 @@ class Point {
 
 
   // 终值初始化的方式
-  Point(this.x,this.y,this.z);
+  Point(int x1, int y1, int z1){
+    x = x1;
+    y = y1;
+    z = z1;
+  }
 
 
   Point.alias(int xOrigin):this.unnamed(xOrigin,0,0);
@@ -58,7 +63,7 @@ class Point {
 
 
   String describe() {
-    return '$x,$y,$z';
+    return   '$x,$y,$z';
   }
 
   /// 如果重写 == 操作符，必须同时重写对象 hashCode 的 Getter 方法。
@@ -116,6 +121,20 @@ class Logger {
 
 
 
+class Static {
+
+
+  static const String  _text = "static text";
+
+
+  static void say() {
+    print("the text is $_text in static class");
+  }
+
+}
+
+
+
 void main() {
 
   /**
@@ -132,9 +151,9 @@ void main() {
    *  在类的构造函数前加上 const 关键字并确保所有实例变量均为 final 来实现该功能。
    *
    * */
-  ProfileMark pm1 =  const ProfileMark(10, 10);
-  ProfileMark pm2 =  const ProfileMark(10, 10);
-  ProfileMark pm3 =  const ProfileMark(10, 20);
+  ProfileMark pm1 =  const ProfileMark(x:10, y:10);
+  ProfileMark pm2 =  const ProfileMark(x:10, y:10);
+  ProfileMark pm3 =  const ProfileMark(x:10, y:20);
   print("pm1.hashCode is ${pm1.hashCode}");
   print("pm2.hashCode is ${pm2.hashCode}");
   print("pm3.hashCode is ${pm3.hashCode}");
@@ -193,5 +212,16 @@ void main() {
   print("the current rect right is ${rect.right}. rect bottom is ${rect.bottom}");
 
 
+  /**
+   *  使用静态成员函数可以不对类进行初始化。
+   *  静态成员变量和静态成员方法是所有类实例所共用的。因此，在
+   *  静态变量（即类变量）常用于声明类范围内所属的状态变量和常量
+   *  静态方法（即类方法）不能对实例进行操作，因此不能使用 this。
+   *  但是他们可以访问静态变量
+   *
+   *
+   * */
+
+  Static.say();
 
 }
