@@ -33,10 +33,16 @@ Future<void> main()  async {
    *     2.使用 1 中 Stream 返回的数据执行循环体
    *     3.重复 1、2 过程直到 Stream 数据返回完毕
    *     4.使用 break 和 return 语句可以停止接收 Stream 数据，这样就跳出了循环并取消注册监听 Stream
+   *     5.返回的stream对象中，有一个transform的方法，该方法是可以被用作指定解码器
+   *         Stream<List<int>> stream = File('quotes.txt').openRead();
+   *         stream.transform(utf8.decoder).forEach(print);
    * */
+  
+
 
 
   Stream<int> streamData = asyncDataStream();
+
   // 接收异步数据流中的数据
   await for (int element in streamData) {
       print ("current receive async element is $element");
