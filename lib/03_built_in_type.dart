@@ -137,6 +137,7 @@ void main() {
   // noChangeSet.forEach((element) { }) 遍历目标集合中的所有元素。但是，IDEA中提示，要避免使用该方法
   // noChangeSet.map((e) => null)    遍历目标集合，根据返回元素，构建新集合。新集合会通过返回值进行返回。
   // noChangeSet.cast()              将目标集合进行类型转换
+  // noChangeSet.toSet()             返回当前set的一个拷贝。
   // noChangeSet.clear()             清空目标集合
   // noChangeSet.difference(other)   求差集，设A，B是两个集合，则所有属于A且不属于B的元素构成的集合，叫做集合A与集合B的差集。
   // noChangeSet.union()             求并集

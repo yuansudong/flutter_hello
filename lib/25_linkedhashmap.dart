@@ -7,7 +7,7 @@ void main() {
    /**
     *
     *   一个插入有序且查找时间恒定的字典类型
-    *
+    *   tip-1: 其遍历顺序是根据插入顺序来的。
     * */
     final LinkedHashMap<int,String> dict = LinkedHashMap<int,String>();
     /// dict.keys 返回一个迭代器，该迭代器中包含着dict中的所有key.
